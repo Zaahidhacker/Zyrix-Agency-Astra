@@ -1,0 +1,147 @@
+{
+  "seo": {
+    "title": "Astra — Websites with an aftereffect",
+    "description": "Astra is an independent website design and development studio. Distinctive business websites, e-commerce and web applications, built to turn attention into action."
+  },
+  "contact": {
+    "email": "",
+    "location": "Independent studio. Working worldwide."
+  },
+  "projects": [
+    {
+      "slug": "forma-audio",
+      "title": "Forma Audio",
+      "category": "E-commerce website",
+      "year": "2026",
+      "client": "Studio concept",
+      "description": "A considered shopping experience for a new generation of sound. Product storytelling meets a remarkably simple path to purchase.",
+      "headline": "Sound you can almost feel.",
+      "image": "/images/forma.webp",
+      "imageAlt": "Brushed aluminum headphones with terracotta ear cushions on a mineral-grey studio surface",
+      "theme": "mineral",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Commerce architecture",
+        "Motion"
+      ],
+      "challenge": "How do you communicate the character of a premium audio product before a visitor can hear it? We explored a product-led website that gives material, detail and listening experience equal weight.",
+      "approach": "We designed an editorial product journey with oversized photography, clear product information and a focused purchase path. A restrained visual system gives the product room to breathe while keeping shopping controls familiar.",
+      "outcome": "An original website direction demonstrating how brand expression and e-commerce usability can work together. This is self-initiated concept work, not a commissioned client launch; no sales or conversion results are claimed.",
+      "scope": [
+        "Website art direction",
+        "E-commerce UX",
+        "Responsive interface",
+        "Product storytelling"
+      ],
+      "concept": true,
+      "published": true
+    },
+    {
+      "slug": "monument",
+      "title": "Monument",
+      "category": "Architecture website",
+      "year": "2026",
+      "client": "Studio concept",
+      "description": "An architectural practice, translated into a digital space. A project archive with the same confidence as the buildings it presents.",
+      "headline": "Space, made digital.",
+      "image": "/images/monument.webp",
+      "imageAlt": "Monumental concrete architecture with a warm vertical aperture against a blue-grey dusk sky",
+      "theme": "architectural",
+      "technologies": [
+        "Next.js",
+        "Content architecture",
+        "GSAP",
+        "Responsive images"
+      ],
+      "challenge": "Architecture portfolios often make visitors choose between beautiful imagery and useful project information. This exploration treats navigation, context and visual impact as parts of the same experience.",
+      "approach": "A generous editorial layout pairs immersive project imagery with concise location, discipline and project information. Clear navigation makes the archive browsable on a phone without reducing it to a list of thumbnails.",
+      "outcome": "A complete visual and content direction for an architecture website. The case study is an independent concept, supported by original generated architectural imagery rather than an actual client building or endorsement.",
+      "scope": [
+        "Website strategy",
+        "Visual identity direction",
+        "Project archive",
+        "CMS structure"
+      ],
+      "concept": true,
+      "published": true
+    },
+    {
+      "slug": "relay",
+      "title": "Relay",
+      "category": "Web application",
+      "year": "2026",
+      "client": "Studio concept",
+      "description": "Less noise. More control. An operations dashboard that helps a small team see what needs to happen next.",
+      "headline": "Clarity is a feature.",
+      "image": "",
+      "imageAlt": "",
+      "theme": "electric",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Data visualization",
+        "Design systems"
+      ],
+      "challenge": "Small teams need a shared picture of their work without another complicated system to maintain. We explored a browser-based workspace that turns operational data into useful next steps.",
+      "approach": "We grouped information around decisions: what is active, what is blocked and what is ready. A clear hierarchy, accessible status labels and restrained data visualization keep the workspace scannable.",
+      "outcome": "An interface concept for a custom web application. The sample data illustrates the design and does not represent real clients or business results. Production integrations would be scoped for the individual business.",
+      "scope": [
+        "Web app UX",
+        "Dashboard design",
+        "Component system",
+        "Data visualization"
+      ],
+      "concept": true,
+      "published": true
+    }
+  ],
+  "services": [
+    {
+      "title": "Websites that make an impression.",
+      "subtitle": "Website design & development",
+      "description": "Your business, expressed with clarity and character. We shape the content, design the experience and build a responsive website that makes the next step obvious.",
+      "deliverables": [
+        "Strategy & site architecture",
+        "UX/UI & art direction",
+        "Responsive development",
+        "Technical SEO & accessibility"
+      ]
+    },
+    {
+      "title": "Turn interest into checkout.",
+      "subtitle": "E-commerce websites",
+      "description": "A store should feel unmistakably yours and effortless to shop. We connect compelling product stories with practical catalog, cart and checkout experiences.",
+      "deliverables": [
+        "Product & collection design",
+        "Storefront development",
+        "Payments & integrations",
+        "Commerce content management"
+      ]
+    },
+    {
+      "title": "Make your business work better.",
+      "subtitle": "Custom web applications",
+      "description": "Booking systems, portals and dashboards built around the way your team works. Thoughtful interfaces with reliable systems behind them.",
+      "deliverables": [
+        "Workflow & product discovery",
+        "Application design",
+        "Backend & database engineering",
+        "Authentication & integrations"
+      ]
+    },
+    {
+      "title": "Keep getting better after launch.",
+      "subtitle": "Website care & evolution",
+      "description": "A website is a living part of your business. We help you maintain it, understand what visitors need and improve the moments that matter.",
+      "deliverables": [
+        "Performance & accessibility reviews",
+        "Content & feature improvements",
+        "Measurement planning",
+        "Maintenance & handover"
+      ]
+    }
+  ],
+  "testimonials": [],
+  "team": []
+}

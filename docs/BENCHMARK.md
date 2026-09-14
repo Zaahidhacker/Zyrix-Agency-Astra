@@ -10,17 +10,17 @@ This is a recording-based visual audit, not a live desktop usability or performa
 
 ## What makes it effective
 
-| Experience | Observation | Why it works |
-| --- | --- | --- |
+| Experience                    | Observation                                                                                                                                       | Why it works                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | Opening, approximately 0–10 s | A near-black stage, luminous metallic amber structure, centered condensed brand type, yellow CTA, compact fixed menu and floating contact control | Restrained palette and lighting create immediate depth; a real business offer remains visible |
-| Transformation, 10–20 s | The object gives way to an angled browser-like plane, then a positioning statement and a smaller recurring artifact | Continuity ties motion to a tangible website rather than disconnected decoration |
-| Positioning, 20–28 s | Large words resolve from soft focus; selected terms use yellow | Sequential emphasis makes a short narrative legible without overwhelming copy |
-| Comparison, 28–32 s | A bright paper-like scene replaces the dark stage; price panels and a division marker explain the offer | A strong tonal reset separates emotional value from commercial value |
-| Capabilities, 32–42 s | Large service titles, small technical labels and colorful interface examples; a thin progress line marks progression | Concrete outcomes ground the spectacle |
-| Journey, 42–48 s | Search, trust, WhatsApp and payments are presented as a connected customer flow | Local relevance makes the pitch practical and credible |
-| Builds, 48–52 s | Large framed storefront/ordering examples with clear categories | Visitors can recognize a use case without understanding technical language |
-| Pricing and risk, 52–60 s | Yellow pricing stage and pale reassurance section; clear delivery terms and ownership | Addresses budget, delivery and dependency objections before asking for contact |
-| Conversion, 60–65 s and HTML | Dark final CTA, free-plan offer, name/email/project/message fields; WhatsApp and email alternatives | One coherent next step with low perceived commitment |
+| Transformation, 10–20 s       | The object gives way to an angled browser-like plane, then a positioning statement and a smaller recurring artifact                               | Continuity ties motion to a tangible website rather than disconnected decoration              |
+| Positioning, 20–28 s          | Large words resolve from soft focus; selected terms use yellow                                                                                    | Sequential emphasis makes a short narrative legible without overwhelming copy                 |
+| Comparison, 28–32 s           | A bright paper-like scene replaces the dark stage; price panels and a division marker explain the offer                                           | A strong tonal reset separates emotional value from commercial value                          |
+| Capabilities, 32–42 s         | Large service titles, small technical labels and colorful interface examples; a thin progress line marks progression                              | Concrete outcomes ground the spectacle                                                        |
+| Journey, 42–48 s              | Search, trust, WhatsApp and payments are presented as a connected customer flow                                                                   | Local relevance makes the pitch practical and credible                                        |
+| Builds, 48–52 s               | Large framed storefront/ordering examples with clear categories                                                                                   | Visitors can recognize a use case without understanding technical language                    |
+| Pricing and risk, 52–60 s     | Yellow pricing stage and pale reassurance section; clear delivery terms and ownership                                                             | Addresses budget, delivery and dependency objections before asking for contact                |
+| Conversion, 60–65 s and HTML  | Dark final CTA, free-plan offer, name/email/project/message fields; WhatsApp and email alternatives                                               | One coherent next step with low perceived commitment                                          |
 
 The typography system contrasts oversized condensed headlines with restrained mono-like labels and conventional body copy. Narrow borders, numerical markers and selective yellow underlines provide consistent visual grammar. The recording shows large, deliberate scroll scenes rather than an ordinary stack of equal cards. Small fixed controls keep the page navigable during long passages. The black/pale/yellow changes reset visual attention.
 
