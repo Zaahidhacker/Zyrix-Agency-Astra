@@ -10,7 +10,7 @@ export default function NotFound() {
       </h1>
       <p>Let’s get you back to something worth exploring.</p>
       <LinkButton href="/" light>
-        Back to Astra
+        Back to Zyrix
       </LinkButton>
     </main>
   );

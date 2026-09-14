@@ -30,7 +30,7 @@ const payload = () => ({
   email: "visitor@example.com",
   service: "Website design & development",
   budget: "Let’s discuss",
-  timeline: "1–3 months",
+  timeline: "1-3 months",
   message: "We need a new website for our independent bookshop.",
   consent: true,
   company: "",
@@ -152,7 +152,7 @@ test("CMS optimistic versioning prevents overwriting concurrent edits", async ()
   const current = await getContent();
   assert.equal(current.version, 0);
   const next = contentSchema.parse(seed);
-  next.seo.title = "Astra — Test title";
+  next.seo.title = "Zyrix | Test title";
   assert.equal(await saveContent(next, 0), 1);
   await assert.rejects(() => saveContent(next, 0), /CONFLICT/);
   assert.equal(await saveContent(next, 1), 2);

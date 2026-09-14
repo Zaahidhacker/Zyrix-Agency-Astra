@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Plus, X } from "lucide-react";
 const links = [
   ["Work", "/#work"],
-  ["Expertise", "/#expertise"],
-  ["Studio", "/#studio"],
+  ["Pricing", "/#pricing"],
+  ["Owner", "/#owner"],
 ];
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -33,8 +33,8 @@ export function Header() {
         Skip to content
       </a>
       <header className="header">
-        <Link href="/" aria-label="Astra home" className="wordmark">
-          astra
+        <Link href="/" aria-label="Zyrix home" className="wordmark">
+          zyrix
           <span className="brand-star" aria-hidden="true">
             ✳
           </span>
@@ -74,7 +74,7 @@ export function Header() {
       >
         <div className="nav-dialog-inner">
           <div className="nav-top">
-            <span className="wordmark">astra✳</span>
+            <span className="wordmark">zyrix✳</span>
             <button
               onClick={close}
               className="icon-button"

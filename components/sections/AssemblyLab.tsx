@@ -11,7 +11,7 @@ export function AssemblyLab() {
       </div>
       <div className="lab-layout">
         <div className="lab-spatial" aria-hidden="true">
-          <span className="mono">ASSEMBLY STUDY — 001</span>
+          <span className="mono">ASSEMBLY STUDY</span>
           <span className="lab-cross">+</span>
         </div>
         <div className="lab-copy" data-reveal>

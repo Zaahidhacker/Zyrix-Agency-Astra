@@ -25,12 +25,12 @@ import { siteUrl } from "@/lib/content";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: "Astra — Independent Website Studio",
-    template: "%s — Astra",
+    default: "Zyrix | Websites at half the market price",
+    template: "%s | Zyrix",
   },
   description:
     "Distinctive websites, e-commerce and web applications. Strategy, design and development, working as one.",
-  openGraph: { type: "website", siteName: "Astra", locale: "en_US" },
+  openGraph: { type: "website", siteName: "Zyrix", locale: "en_LK" },
   twitter: { card: "summary_large_image" },
 };
 export const viewport: Viewport = {

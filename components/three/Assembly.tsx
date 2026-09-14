@@ -19,10 +19,10 @@ export function Assembly() {
         clearcoatRoughness: 0.25,
       }),
       new MeshPhysicalMaterial({
-        color: "#ff542e",
+        color: "#d3a525",
         metalness: 0.7,
         roughness: 0.27,
-        emissive: "#d52c0d",
+        emissive: "#8f6500",
         emissiveIntensity: 0.2,
       }),
     ],
@@ -38,24 +38,14 @@ export function Assembly() {
         invalidate();
       }
     };
-    [
-      "scroll",
-      "pointermove",
-      "resize",
-      "astra:assembly",
-      "visibilitychange",
-    ].forEach((event) =>
-      window.addEventListener(event, wake, { passive: true }),
+    ["pointermove", "resize", "zyrix:frame", "visibilitychange"].forEach(
+      (event) => window.addEventListener(event, wake, { passive: true }),
     );
     wake();
     return () => {
-      [
-        "scroll",
-        "pointermove",
-        "resize",
-        "astra:assembly",
-        "visibilitychange",
-      ].forEach((event) => window.removeEventListener(event, wake));
+      ["pointermove", "resize", "zyrix:frame", "visibilitychange"].forEach(
+        (event) => window.removeEventListener(event, wake),
+      );
       geometry.dispose();
       materials.forEach((m) => m.dispose());
     };
@@ -73,20 +63,26 @@ export function Assembly() {
     }
     const reduced = state.reduced;
     const speed = reduced ? 1 : 1 - Math.exp(-dt * 7);
-    const isLab = state.chapter === "lab";
-    const isStatement = state.chapter === "statement";
-    const spread = isLab
-      ? state.assembly
-      : state.chapter === "unfold"
+    const isOwner = state.chapter === "owner";
+    const spread =
+      state.chapter === "unfold"
         ? state.progress
         : Math.min(1, state.progress) * 0.7 + 0.18;
     const x = state.mobile
       ? 0
-      : isLab
-        ? -viewport.width * 0.22
-        : isStatement
-          ? -viewport.width * 0.25
-          : viewport.width * 0.225;
+      : isOwner
+        ? -viewport.width * 0.28
+        : state.chapter === "contact"
+          ? 0
+          : state.chapter === "work"
+            ? MathUtils.lerp(
+                viewport.width * 0.27,
+                -viewport.width * 0.27,
+                state.progress,
+              )
+            : state.chapter === "pricing"
+              ? viewport.width * 0.3
+              : viewport.width * 0.225;
     const y = state.mobile ? state.targetY * viewport.height : 0.1;
     group.current.position.x = MathUtils.lerp(
       group.current.position.x,
@@ -113,7 +109,13 @@ export function Assembly() {
       -0.31 + spread * 0.45,
       speed,
     );
-    const scale = state.mobile ? 0.54 : isLab ? 0.85 : 1.05;
+    const scale = state.mobile
+      ? 0.54
+      : isOwner
+        ? 0.72
+        : state.chapter === "contact"
+          ? 0.65
+          : 1.05;
     group.current.scale.setScalar(
       MathUtils.lerp(group.current.scale.x, scale, speed),
     );

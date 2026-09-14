@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "Astra — Websites. Built to move you.";
+export const alt = "Zyrix | Premium websites. Half the market price.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -23,8 +23,8 @@ export default function Image() {
           fontSize: 28,
         }}
       >
-        <span>astra ✳</span>
-        <span style={{ fontSize: 18 }}>INDEPENDENT WEB STUDIO</span>
+        <span>zyrix ✳</span>
+        <span style={{ fontSize: 18 }}>SRI LANKAN WEBSITE AGENCY</span>
       </div>
       <div
         style={{
@@ -36,9 +36,9 @@ export default function Image() {
           lineHeight: 1,
         }}
       >
-        <span>WEBSITES.</span>
+        <span>BIG WEBSITES.</span>
         <span>
-          BUILT TO <span style={{ color: "#ff5a35" }}>MOVE YOU.</span>
+          HALF THE <span style={{ color: "#d3a525" }}>PRICE.</span>
         </span>
       </div>
       <div style={{ display: "flex", fontSize: 19, letterSpacing: 2 }}>

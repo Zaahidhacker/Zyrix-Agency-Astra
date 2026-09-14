@@ -4,9 +4,20 @@ import { contentSchema, type SiteContent } from "./schema";
 import { query } from "./db";
 export const getContent = cache(
   async (): Promise<{ data: SiteContent; version: number }> => {
-    const rows = await query("SELECT payload,version FROM content WHERE id=?", [
-      "site",
-    ]);
+    let rows: Awaited<ReturnType<typeof query>> = [];
+    try {
+      rows = await query("SELECT payload,version FROM content WHERE id=?", [
+        "site",
+      ]);
+    } catch (error) {
+      // The public site remains readable during first deployment. Write routes
+      // still require DATABASE_URL, so no enquiries are silently discarded.
+      if (
+        !(error instanceof Error) ||
+        !error.message.includes("Production requires DATABASE_URL")
+      )
+        throw error;
+    }
     if (!rows[0]) return { data: contentSchema.parse(seed), version: 0 };
     return {
       data: contentSchema.parse(JSON.parse(String(rows[0].payload))),

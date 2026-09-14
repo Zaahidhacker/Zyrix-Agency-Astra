@@ -95,7 +95,7 @@ export function ProjectCard({
       <Link
         href={`/work/${project.slug}`}
         className="project-visual"
-        aria-label={`Explore ${project.title} — ${project.category}`}
+        aria-label={`Explore ${project.title}: ${project.category}`}
       >
         {project.image ? (
           <Image
@@ -113,21 +113,6 @@ export function ProjectCard({
           <RelayPreview />
         )}
         <div className="project-overlay">
-          <div className="project-visual-top mono">
-            <span>{project.category}</span>
-            <span>{project.year}</span>
-          </div>
-          <div className="project-art-title">
-            {project.title === "Forma Audio" ? (
-              <>
-                forma<span>®</span>
-              </>
-            ) : project.title === "Monument" ? (
-              "MONUMENT."
-            ) : (
-              project.title
-            )}
-          </div>
           <div className="project-visual-bottom">
             <span>{project.headline}</span>
             <span className="circle-link">
@@ -138,7 +123,6 @@ export function ProjectCard({
       </Link>
       <div className="project-caption">
         <div>
-          <span className="mono project-number">0{index + 1}</span>
           <h3>
             <Link href={`/work/${project.slug}`}>{project.title}</Link>
           </h3>

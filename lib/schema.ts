@@ -67,16 +67,16 @@ export const enquirySchema = z.object({
     "Not sure yet",
   ]),
   budget: z.enum([
-    "Under $3,000",
-    "$3,000–$10,000",
-    "$10,000–$25,000",
-    "$25,000+",
+    "Under LKR 50,000",
+    "LKR 50,000-100,000",
+    "LKR 100,000-250,000",
+    "LKR 250,000+",
     "Let’s discuss",
   ]),
   timeline: z.enum([
     "As soon as possible",
-    "1–3 months",
-    "3–6 months",
+    "1-3 months",
+    "3-6 months",
     "Exploring",
   ]),
   message: z

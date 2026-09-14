@@ -11,7 +11,7 @@ export default function Privacy() {
     <>
       <Header />
       <main id="main" className="legal-page section-pad">
-        <span className="mono">ASTRA / YOUR INFORMATION</span>
+        <span className="mono">ZYRIX / YOUR INFORMATION</span>
         <h1>
           Privacy,
           <br />

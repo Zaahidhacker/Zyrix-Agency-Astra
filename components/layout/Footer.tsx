@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <p>
-          Independent minds.
+          Sri Lankan prices.
           <br />
           Exceptional websites.
         </p>
@@ -13,8 +13,8 @@ export function Footer() {
           <Link href="/#work">
             Work <ArrowUpRight size={15} />
           </Link>
-          <Link href="/#expertise">
-            Expertise <ArrowUpRight size={15} />
+          <Link href="/#pricing">
+            Pricing <ArrowUpRight size={15} />
           </Link>
           <Link href="/#contact">
             Contact <ArrowUpRight size={15} />
@@ -25,10 +25,10 @@ export function Footer() {
         </a>
       </div>
       <div className="footer-brand" aria-hidden="true">
-        astra<span>✳</span>
+        zyrix<span>✳</span>
       </div>
       <div className="footer-bottom mono">
-        <span>© {new Date().getFullYear()} ASTRA STUDIO</span>
+        <span>© {new Date().getFullYear()} ZYRIX</span>
         <span>DESIGNED WITH INTENT. BUILT WITH CARE.</span>
         <Link href="/privacy">Privacy & analytics</Link>
       </div>

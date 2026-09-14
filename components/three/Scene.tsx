@@ -21,7 +21,7 @@ export default function Scene() {
     >
       <ambientLight intensity={0.3} />
       <directionalLight position={[4, 6, 5]} intensity={3} />
-      <pointLight position={[-3, -2, 4]} color="#ff4b20" intensity={18} />
+      <pointLight position={[-3, -2, 4]} color="#d3a525" intensity={18} />
       <Environment resolution={128} frames={1}>
         <Lightformer intensity={4} position={[0, 5, -2]} scale={[12, 5, 1]} />
         <Lightformer
@@ -42,7 +42,7 @@ export default function Scene() {
           position={[0, -4, 2]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={[8, 4, 1]}
-          color="#ff652f"
+          color="#e2b93f"
         />
       </Environment>
       <Assembly />

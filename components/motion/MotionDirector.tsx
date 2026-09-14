@@ -29,24 +29,22 @@ export function MotionDirector() {
             scrollTrigger: { trigger: el, start: "top 94%", once: true },
           });
         });
-        gsap.utils
-          .toArray<HTMLElement>("[data-parallax]")
-          .forEach((el) =>
-            gsap.fromTo(
-              el,
-              { yPercent: -3 },
-              {
-                yPercent: 3,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: el.parentElement,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 0.5,
-                },
+        gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) =>
+          gsap.fromTo(
+            el,
+            { yPercent: -3 },
+            {
+              yPercent: 3,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.5,
               },
-            ),
-          );
+            },
+          ),
+        );
       });
       cleanup = () => ctx.revert();
     }

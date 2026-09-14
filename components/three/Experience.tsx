@@ -26,6 +26,8 @@ export function Experience() {
   const wrapper = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
+    let disposed = false;
+    let disposeScroll = () => {};
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const mobile = matchMedia("(max-width: 760px)");
     state.reduced = reduced.matches;
@@ -44,62 +46,33 @@ export function Experience() {
       () => setEnabled(supported && !cn.connection?.saveData),
       80,
     );
-    let sections: { el: HTMLElement; chapter: typeof state.chapter }[] = [];
-    const measure = () => {
-      sections = ["hero", "unfold", "statement", "lab", "contact"].flatMap(
-        (id) => {
-          const el = document.getElementById(id);
-          return el ? [{ el, chapter: id as typeof state.chapter }] : [];
-        },
-      );
-      state.mobile = mobile.matches;
-      update();
-    };
-    const update = () => {
-      const center = innerHeight * 0.5;
-      const match = sections.find(({ el }) => {
-        const rect = el.getBoundingClientRect();
-        return rect.top <= center && rect.bottom >= center;
-      });
-      state.visible = !!match;
+    const sync = (
+      chapter: typeof state.chapter,
+      rawProgress: number,
+      el: HTMLElement,
+    ) => {
+      const progress = reduced.matches ? 0.35 : rawProgress;
+      state.visible = true;
       state.reduced = reduced.matches;
-      if (match) {
-        const rect = match.el.getBoundingClientRect();
-        state.chapter = match.chapter;
-        const anchor = match.el.querySelector<HTMLElement>(
-          match.chapter === "lab"
-            ? ".lab-spatial"
-            : match.chapter === "unfold"
-              ? ".unfold-artifact-anchor"
-              : ".hero-artifact-anchor",
-        );
-        if (anchor) {
-          const a = anchor.getBoundingClientRect();
-          state.targetY = 0.5 - (a.top + a.height / 2) / innerHeight;
-        }
-        state.progress = Math.max(
-          0,
-          Math.min(
-            1,
-            -rect.top /
-              Math.max(
-                match.chapter === "unfold"
-                  ? rect.height - innerHeight
-                  : rect.height,
-                1,
-              ),
-          ),
-        );
+      state.mobile = mobile.matches;
+      state.chapter = chapter;
+      state.progress = Math.max(0, Math.min(1, progress));
+      const anchor = el.querySelector<HTMLElement>(
+        chapter === "unfold"
+          ? ".unfold-artifact-anchor"
+          : ".hero-artifact-anchor",
+      );
+      if (anchor) {
+        const a = anchor.getBoundingClientRect();
+        state.targetY = 0.5 - (a.top + a.height / 2) / innerHeight;
       }
       if (wrapper.current) {
-        wrapper.current.style.opacity = state.visible ? "1" : "0";
+        wrapper.current.style.opacity = "1";
         wrapper.current.dataset.chapter = state.chapter;
         const spread =
-          state.chapter === "lab"
-            ? state.assembly
-            : state.chapter === "unfold"
-              ? state.progress
-              : state.progress * 0.7 + 0.18;
+          state.chapter === "unfold"
+            ? state.progress
+            : state.progress * 0.7 + 0.18;
         wrapper.current.style.setProperty("--assembly-spread", String(spread));
         wrapper.current.style.setProperty(
           "--assembly-y",
@@ -107,7 +80,15 @@ export function Experience() {
         );
         wrapper.current.style.setProperty(
           "--assembly-x",
-          state.mobile ? "50%" : state.chapter === "lab" ? "27%" : "73%",
+          state.mobile
+            ? "50%"
+            : state.chapter === "owner"
+              ? "22%"
+              : state.chapter === "contact"
+                ? "50%"
+                : state.chapter === "work"
+                  ? `${73 - state.progress * 46}%`
+                  : "73%",
         );
         wrapper.current.style.setProperty(
           "--pointer-x",
@@ -119,26 +100,68 @@ export function Experience() {
         );
       }
       state.revision++;
+      window.dispatchEvent(new Event("zyrix:frame"));
     };
     const pointer = (e: PointerEvent) => {
       if (e.pointerType !== "mouse" || state.reduced) return;
       state.pointerX = (e.clientX / innerWidth - 0.5) * 2;
       state.pointerY = (e.clientY / innerHeight - 0.5) * 2;
-      update();
+      const section = document.getElementById(state.chapter);
+      if (section) sync(state.chapter, state.progress, section);
     };
-    measure();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", measure, { passive: true });
+    const resize = () => {
+      state.mobile = mobile.matches;
+      const section = document.getElementById(state.chapter);
+      if (section) sync(state.chapter, state.progress, section);
+    };
+    async function initScroll() {
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      if (disposed) return;
+      gsap.registerPlugin(ScrollTrigger);
+      const triggers = [
+        "hero",
+        "unfold",
+        "pricing",
+        "work",
+        "owner",
+        "contact",
+      ].flatMap((id) => {
+        const el = document.getElementById(id);
+        if (!el) return [];
+        const chapter = id as typeof state.chapter;
+        return [
+          ScrollTrigger.create({
+            trigger: el,
+            start: id === "hero" ? "top top" : "top center",
+            end: "bottom center",
+            onToggle: (self) => {
+              if (self.isActive) sync(chapter, self.progress, el);
+            },
+            onUpdate: (self) => {
+              if (self.isActive) sync(chapter, self.progress, el);
+            },
+          }),
+        ];
+      });
+      const hero = document.getElementById("hero");
+      if (hero) sync("hero", 0, hero);
+      ScrollTrigger.refresh();
+      disposeScroll = () => triggers.forEach((trigger) => trigger.kill());
+    }
+    void initScroll();
+    window.addEventListener("resize", resize, { passive: true });
     window.addEventListener("pointermove", pointer, { passive: true });
-    reduced.addEventListener("change", update);
-    window.addEventListener("astra:assembly", update);
+    reduced.addEventListener("change", resize);
+    mobile.addEventListener("change", resize);
     return () => {
+      disposed = true;
+      disposeScroll();
       clearTimeout(timer);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", pointer);
-      reduced.removeEventListener("change", update);
-      window.removeEventListener("astra:assembly", update);
+      reduced.removeEventListener("change", resize);
+      mobile.removeEventListener("change", resize);
     };
   }, []);
   return (

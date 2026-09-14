@@ -33,7 +33,7 @@ export function AdminLogin() {
   return (
     <main className="admin-shell">
       <Link href="/" className="wordmark">
-        astra✳
+        zyrix✳
       </Link>
       <form className="admin-login" onSubmit={login}>
         <span className="mono">STUDIO WORKSPACE</span>
@@ -282,7 +282,7 @@ export function AdminPanel({
   return (
     <main className="admin-shell">
       <div className="admin-top">
-        <h1>Astra / Studio workspace</h1>
+        <h1>Zyrix / Studio workspace</h1>
         <div>
           <Link href="/" target="_blank">
             View website ↗

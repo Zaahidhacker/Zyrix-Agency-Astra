@@ -4,7 +4,8 @@ export const storyState = {
   pointerX: 0,
   pointerY: 0,
   assembly: 0.3,
-  chapter: "hero" as "hero" | "unfold" | "statement" | "lab" | "contact",
+  chapter: "hero" as
+    "hero" | "unfold" | "pricing" | "work" | "owner" | "contact",
   visible: true,
   reduced: false,
   mobile: false,
@@ -13,5 +14,5 @@ export const storyState = {
 export function updateAssembly(value: number) {
   storyState.assembly = value;
   storyState.revision++;
-  window.dispatchEvent(new Event("astra:assembly"));
+  window.dispatchEvent(new Event("zyrix:frame"));
 }

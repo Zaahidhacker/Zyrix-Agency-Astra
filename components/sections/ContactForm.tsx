@@ -145,13 +145,13 @@ export function ContactForm({ project }: { project?: string }) {
           Investment range <span>*</span>
           <select id="budget" name="budget" required defaultValue="">
             <option value="" disabled>
-              Select a range (USD)
+              Select a range (LKR)
             </option>
             {[
-              "Under $3,000",
-              "$3,000–$10,000",
-              "$10,000–$25,000",
-              "$25,000+",
+              "Under LKR 50,000",
+              "LKR 50,000-100,000",
+              "LKR 100,000-250,000",
+              "LKR 250,000+",
               "Let’s discuss",
             ].map((x) => (
               <option key={x}>{x}</option>
@@ -166,8 +166,8 @@ export function ContactForm({ project }: { project?: string }) {
             </option>
             {[
               "As soon as possible",
-              "1–3 months",
-              "3–6 months",
+              "1-3 months",
+              "3-6 months",
               "Exploring",
             ].map((x) => (
               <option key={x}>{x}</option>
@@ -204,7 +204,7 @@ export function ContactForm({ project }: { project?: string }) {
       <label className="consent">
         <input name="consent" type="checkbox" required />
         <span>
-          I agree to the <Link href="/privacy">privacy notice</Link> so Astra
+          I agree to the <Link href="/privacy">privacy notice</Link> so Zyrix
           can respond to this enquiry.
         </span>
       </label>
